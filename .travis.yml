@@ -1,0 +1,17 @@
+language: python
+dist: xenial
+sudo: required
+python: 
+  - "3.6"
+addons:
+  postgresql: "10"
+env:
+  - DJANGO_VERSION=2.1.2
+install:
+  - pip install -r travis-ci-requirements.txt
+  - pip install -q Django==$DJANGO_VERSION
+before_script:
+  - sudo -u postgres psql -c "CREATE USER yap WITH CREATEDB PASSWORD 'test';"
+  - sudo -u postgres psql -c "CREATE DATABASE awesome_yap WITH OWNER yap;"
+script:
+  - python manage.py test
