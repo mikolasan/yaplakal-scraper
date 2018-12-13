@@ -1,0 +1,8 @@
+<h1>Do you want soup?</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'navigation:soup' %}" method="post">
+{% csrf_token %}
+<input type="submit" value="Soup!">
+</form>

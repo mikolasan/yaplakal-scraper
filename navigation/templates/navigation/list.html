@@ -1,0 +1,32 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/flexbox.css' %}" />
+<link href="https://fonts.googleapis.com/css?family=Alice" rel="stylesheet">
+<header class="masthead clear">
+    <div class="centered">
+        <div class="site-branding">
+            <h1 class="site-title">Posts (just a list)</h1>
+        </div>
+        <h3>Do you want <strong>more</strong> soup?</h3>
+        <form action="{% url 'navigation:update' %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="More soup!">
+        </form>
+    </div>
+</header>
+
+<main class="main-area">
+    <div class="centered">
+        <section class="cards">
+        {% for post in posts %}
+            <article class="card">
+                <a href="{{ post.link }}">
+                    <figure class="thumbnail">
+                        <img src="{{ post.image_src }}" alt="">
+                    </figure>
+                    <div class="card-content">
+                        <h2>{{ post.title }}</h2>
+                        <p>{{ post.excerpt }}</p>
+                    </div>
+                </a>
+            </article>
+        {% endfor %}
