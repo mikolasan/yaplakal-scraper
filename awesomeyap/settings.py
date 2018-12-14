@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,7 +26,7 @@ SECRET_KEY = 'mag+p03as%xvojwqb$6#=_bao0j+!hpylq(01fau)fgc6x0=*7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['awesomeyap.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'awesomeyap.herokuapp.com']
 
 
 # Application definition
@@ -76,15 +77,8 @@ WSGI_APPLICATION = 'awesomeyap.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'HOST': '127.0.0.1',
-        'NAME': 'awesome_yap',
-        'USER': 'yap',
-        'PASSWORD': 'test'
-    }
+    'default': dj_database_url.config(default='postgres://yap:test@127.0.0.1:5432/awesome_yap', conn_max_age=600, ssl_require=True)
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
