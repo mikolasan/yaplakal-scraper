@@ -1,4 +1,4 @@
-# Scraper for :droplet: yaplakal.com
+# Scraper for ya:droplet:plakal.com
 
 [![Build Status](https://travis-ci.org/mikolasan/yaplakal-scraper.svg?branch=master)](https://travis-ci.org/mikolasan/yaplakal-scraper)
 
