@@ -1,0 +1,42 @@
+body {
+	background: #29222D;
+}
+
+h1 {
+	color: #fff;
+	font-family: 'Roboto Condensed';
+	border-bottom: 6px solid #fff;
+	font-size: 58px;
+	font-weight: 700;
+	line-height: 66px;
+	letter-spacing: -0.02em;
+	margin: 0 auto 72px;
+	padding-bottom: 24px;
+	max-width: 700px;
+}
+
+p {
+	color: #fff;
+	font-family: 'Vollkorn';
+	box-sizing: border-box;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 30px;
+	margin: 0 auto 30px;
+	max-width: 700px;
+	padding-left: 72px;
+}
+
+a {
+	color: #E4CE53;
+}
+
+a:hover {
+	color: #fff;
+}
+
+img {
+	width: 400px;
+	margin: 72px auto 0;
+    display: block;
+}

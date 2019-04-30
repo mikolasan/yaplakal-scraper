@@ -1,19 +1,7 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/flexbox.css' %}" />
-<link href="https://fonts.googleapis.com/css?family=Alice" rel="stylesheet">
-<header class="masthead clear">
-    <div class="centered">
-        <div class="site-branding">
-            <h1 class="site-title">Posts (just a list)</h1>
-        </div>
-        <h3>Do you want <strong>more</strong> soup?</h3>
-        <form action="{% url 'navigation:update' %}" method="post">
-            {% csrf_token %}
-            <input type="submit" value="More soup!">
-        </form>
-    </div>
-</header>
-
+<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Vollkorn:400,400italic,900' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
 <main class="main-area">
     <div class="centered">
         <section class="cards">
@@ -23,10 +11,10 @@
                     <figure class="thumbnail">
                         <img src="{{ post.image_src }}" alt="">
                     </figure>
-                    <div class="card-content">
-                        <h2>{{ post.title }}</h2>
-                        <p>{{ post.excerpt }}</p>
-                    </div>
                 </a>
+                <div class="card-content">
+                    <h1>{{ post.title }}</h1>
+                    <p>{{ post.excerpt }}</p>
+                </div>
             </article>
         {% endfor %}
