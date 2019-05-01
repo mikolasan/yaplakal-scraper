@@ -3,18 +3,23 @@
 <link href='https://fonts.googleapis.com/css?family=Vollkorn:400,400italic,900' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 <main class="main-area">
-    <div class="centered">
-        <section class="cards">
-        {% for post in posts %}
+    <section class="cards centered">
+    {% for post in posts %}
+        {% if post.image_src|length > 0 %}
             <article class="card">
-                <a href="{{ post.link }}">
-                    <figure class="thumbnail">
-                        <img src="{{ post.image_src }}" alt="">
-                    </figure>
-                </a>
+                <div class="card-thumbnail">
+                    <a href="{{ post.link }}">
+                        <figure class="thumbnail">
+                            <img src="{{ post.image_src }}" alt="">
+                        </figure>
+                    </a>
+                </div>
                 <div class="card-content">
-                    <h1>{{ post.title }}</h1>
-                    <p>{{ post.excerpt }}</p>
+                    <a href="{{ post.link }}">
+                        <h1>{{ post.title }}</h1>
+                    </a>
+                    <p>{{ post.excerpt|truncatewords:15 }}</p>
                 </div>
             </article>
-        {% endfor %}
+        {% endif %}
+    {% endfor %}
